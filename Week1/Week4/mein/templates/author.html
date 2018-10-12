@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>
+	Tasks in "List1"
+</h2>
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">First name</th>
+			<th scope="col">Last name</th>
+			<th scope="col">Email</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		{% for key in list %}
+		<tr>
+			<td class='align-middle'><a class="href" href="#">{{key.task}}</a></td>
+			<td class='align-middle'>{{key.created}}</td>
+			<td class='align-middle'>{{key.dueto}}</td>
+			<td class='align-middle'>{{key.owner}}</td>
+			{% if key.mark == True %}
+			<td class='align-middle'><a class="btn btn-info btn-xs" href="">Done</a></td>
+			{% else %}
+			<td><a class="btn btn-info btn-xs" href="">Not done</a></td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<div class="container">
+	<div class="row">
+		<input type="submit" name="" id="" value="View completed tasks" class='px-5 mr-2 btn btn-primary btn-xs btn-warning' />
+		<input type="submit" name="" id="" value="Delet this list" class='mr-2 btn btn-xs btn-primary btn-danger' />
+	</div>
+</div>
+{% endblock %}
