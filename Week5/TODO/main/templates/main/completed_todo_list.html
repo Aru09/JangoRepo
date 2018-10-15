@@ -1,0 +1,39 @@
+{% extends "main/main.html"%}
+
+{%block body%}
+<hr>
+<h1>Completed tasks in "List1"</h1>
+<table class="table">
+    <tr>
+        <th>Task</th>
+        <th>Created</th>
+        <th>Due on</th>
+        <th>Owner</th>
+        <th>Mark</th>
+    </tr>
+      {% for val in task %}
+
+        <tr>
+
+        	
+          
+            
+            {% if val.mark %}
+            
+            <td><a href="">{{val.task_name}}</a></td> 
+            <td>{{val.created}}</td>
+            <td>{{val.due_on}}</td>
+            <td>{{val.owner}}</td>
+            <td><button class="btn btn-info">Done</button></td>
+            
+            {% endif %}
+            
+            
+
+
+        </tr>
+     {% endfor %}
+  <hr>
+
+</table>
+{% endblock %}

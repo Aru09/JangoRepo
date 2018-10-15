@@ -1,0 +1,48 @@
+{% extends "main/main.html"%}
+
+{% block body %}
+
+<hr>
+
+<a href="{% url 'add' %}" class="btn btn-primary">Add</a>
+
+<h1>Task in "List1"</h1>
+<table class="table">
+    <tr>
+        <th>Task</th>
+        <th>Created</th>
+        <th>Due on</th>
+        <th>Owner</th>
+        <th>Mark</th>
+        <th>Task_list</th>
+    </tr>
+    
+    {% for val in task %}
+        <tr>
+            <td><a href="">{{val.task_name}}</a></td> 
+            <td>{{val.created}}</td>
+            <td>{{val.due_on}}</td>
+            <td>{{val.owner}}</td>
+            <td><button class="btn btn-info">{% if val.mark == True%}
+                Done
+            {% else %}
+                Not Done
+            {% endif %}</button></td>
+            <td>{{val.task_list}}</td>
+
+           <td><a href = "{% url 'delete' val.id %}" class="btn btn-danger">Delete</a></td> 
+            <!-- <td><a href = "{{val.id}}/delete" class="btn btn-danger">Delete</a></td> -->
+            
+
+
+        </tr>
+
+        
+    {% endfor %}
+</table>
+
+    <a href =  "1/completed" class="btn btn-warning">View completed tasks</a>
+    
+<hr>
+
+{% endblock%}
